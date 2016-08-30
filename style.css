@@ -1,0 +1,8 @@
+/* YOUR CUSTOM STYLES */
+.hm-black-strong .full-bg-img, .hm-black-strong .mask {
+    background-color: rgba(0,0,0,.5);
+}
+
+.form-control {
+  color: #fff;
+}
