@@ -83,18 +83,31 @@
                     <br>
                     <!--search fields-->
                     <div class="row">
+                        <!--activity input-->
+                        <div class="col-md-6">
+                            <!-- <div class="btn-group" id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type"> -->
+                            <div class="btn-group" id="activityInput">
+                                <a href="javascript:void(0)" class="btn">Choose Actuvity</a>
+                                <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Mountain Biking</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="javascript:void(0)">Hiking</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="javascript:void(0)">Camping</a></li>
+                                </ul>
+                            </div>
+                            <!-- <form class="form-inline">
+                              <input id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type">
+                          </form> -->
+                        </div>
+
+
                         <!--location input-->
                         <div class="col-md-6">
 
                             <form class="form-inline">
                                 <input id="cityInput" class="form-control" type="text" placeholder="Enter City Name">
-                            </form>
-                        </div>
-
-                        <!--activity input-->
-                        <div class="col-md-6">
-                            <form class="form-inline">
-                                <input id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type">
                             </form>
                         </div>
                     </div>
