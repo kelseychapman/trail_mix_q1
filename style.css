@@ -60,3 +60,8 @@
   height: 380px;
   max-width: 100%;
 }
+
+
+.dropdownjs > ul {
+  opacity: .9;
+}

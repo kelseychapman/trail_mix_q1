@@ -23,21 +23,28 @@ var allJSON = {};
 $('#submit').on('click', function (event) {
   event.preventDefault()
   var activity = $('#activityInput').val();
-  console.log(activity);
+  console.log($('#activityInput'));
 
-  var city = $('#cityInput').val();
-  console.log(city);
+  var location = $('#locationInput').val();
+  // console.log(city);
 
-  getData(activity, city)
+  let locationParts = location.split(",")
+  let city = $.trim(locationParts[0])
+  let state = $.trim(locationParts[1])
+  console.log(city, state);
+
+
+
+  getData(activity, city, state)
 
 })
 
 
 
-var getData = function (activity, city){
+var getData = function (activity, city, state){
 
 xhr.open('GET',
-"https://trailapi-trailapi.p.mashape.com/?&limit=50&q[activities_activity_type_name_eq]="+activity+"&q[city_cont]="+city+"&radius=25");
+"https://trailapi-trailapi.p.mashape.com/?&limit=50&q[activities_activity_type_name_eq]="+activity+"&q[city_cont]="+city+"&q[state_cont]="+state+"&radius=25");
 xhr.setRequestHeader("X-Mashape-Key", "fqW2PWOMWgmshzocEyvv0m4Cyi84p1SAibJjsn6RetmFdoZyG8");
 xhr.responeType = 'json'
 xhr.onload = function() {
@@ -58,79 +65,104 @@ xhr.send();
 }
 
 
+//
+// var renderTrails = function() {
+//     $('#trails').empty(); //gets rid of things in "trails" div
+//
+//     for (var trail of trails) { //creates card in trails div
+//       var $col = $('<div class="col s6">');
+//       var $card = $('<div class="card hoverable">');
+//       var $content = $('<div class="card-content center">');
+//       var $title = $('<h6 class="card-title truncate">');
+//
+//       $title.attr({ //adds title in card
+//         'data-position': 'top',
+//         'data-tooltip': trail.title
+//       });
+//
+//       $title.tooltip({ delay: 50, });
+//
+//       $title.text(trail.title);
+//
+//       var $thumbnail = $('<img class="thumbnail">'); //adds thumbnail image tag in card
+//
+//       $thumbnail.attr({
+//         src: trail.thumbnail,
+//         alt: `${trail.thumbnail} thumbnail`
+//       });
+//
+//       $content.append($title, $thumbnail);
+//       $card.append($content);
+//
+//       var $action = $('<div class="card-action center">'); //adds description in card
+//       var $description = $('<a class="waves-effect waves-light btn modal-trigger">'); //adds button in card
+//
+//       $description.attr('href', `#${trail.id}`);
+//       $description.text('Trail Description');
+//
+//       $action.append($description);
+//       $card.append($action);
+//
+//       var $modal = $(`<div id="${trail.id}" class="modal">`);
+//       var $modalContent = $('<div class="modal-content">');
+//       var $modalHeader = $('<h4>').text(trail.title);
+//       var $trailActivity = $('<h6>').text(`Released in ${trail.activity}`);
+//       var $modalText = $('<p>').text(trail.description);
+//
+//       $modalContent.append($modalHeader, $movieActivity, $modalText);
+//       $modal.append($modalContent);
+//
+//       $col.append($card, $modal);
+//
+//       $('#trails').append($col);
+//
+//       $('.modal-trigger').leanModal();
+//     }
+//   };
 
-var renderTrails = function() {
-    $('#trails').empty(); //gets rid of things in "trails" div
-
-    for (var trail of trails) { //creates card in trails div
-      var $col = $('<div class="col s6">');
-      var $card = $('<div class="card hoverable">');
-      var $content = $('<div class="card-content center">');
-      var $title = $('<h6 class="card-title truncate">');
-
-      $title.attr({ //adds title in card
-        'data-position': 'top',
-        'data-tooltip': trail.title
-      });
-
-      $title.tooltip({ delay: 50, });
-
-      $title.text(trail.title);
-
-      var $thumbnail = $('<img class="thumbnail">'); //adds thumbnail in card
-
-      $thumbnail.attr({
-        src: trail.thumbnail,
-        alt: `${trail.thumbnail} thumbnail`
-      });
-
-      $content.append($title, $thumbnail);
-      $card.append($content);
-
-      var $action = $('<div class="card-action center">'); //adds description in card
-      var $description = $('<a class="waves-effect waves-light btn modal-trigger">'); //adds button in card
-
-      $description.attr('href', `#${trail.id}`);
-      $description.text('Trail Description');
-
-      $action.append($description);
-      $card.append($action);
-
-      var $modal = $(`<div id="${trail.id}" class="modal">`);
-      var $modalContent = $('<div class="modal-content">');
-      var $modalHeader = $('<h4>').text(trail.title);
-      var $movieActivity = $('<h6>').text(`Released in ${trail.activity}`);
-      var $modalText = $('<p>').text(trail.description);
-
-      $modalContent.append($modalHeader, $movieActivity, $modalText);
-      $modal.append($modalContent);
-
-      $col.append($card, $modal);
-
-      $('#trails').append($col);
-
-      $('.modal-trigger').leanModal();
-    }
-  };
 
 
   function getActivity(myJSON){
+    var activitiesArray = []
+
     for (var i = 0; i < myJSON.places.length; i++) {
-      console.log(allJSON.places[i].activities[0].activity_type_name);
+      // console.log(myJSON.places[i]);
+
 
       var activityValue = {
-        city: myJSON.places.city
-        state: myJSON.places.state
-        activity_type_name: myJSON.places.activity_type_name
-        description: myJSON.places.description
-        name: myJSON.places.name
-        thumbnail: myJSON.places.thumbnail
-        url: myJSON.places.url
-        directions: myJSON.places.directions
+        city: myJSON.places[i].city,
+        state: myJSON.places[i].state,
+        activity_type: myJSON.places[i].activities[0].activity_type.name,
+        description: myJSON.places[i].description,
+        name: myJSON.places[i].name,
+        thumbnail: myJSON.places[i].activities[0].thumbnail,
+        url: myJSON.places[i].activities[0].url,
+        directions: myJSON.places[i].directions
 
       }
-      console.log(activityValue.city)
+      activitiesArray.push(activityValue)
+      // console.log(activityValue)
     }
+    console.log(activitiesArray);
+    renderActivities(activitiesArray)
   }
+
+  function renderActivities(activitiesArray){
+      for (var i = 0; i < activitiesArray.length; i++) {
+        var $col = $('<div class="col s6">');
+        var $card = $('<div class="card hoverable">');
+        var $content = $('<div class="card-content center">');
+        var $name = $('<h6 class="card-title truncate">');
+
+        $name.text(activitiesArray[i].name);
+// console.log(activitiesArray[i].name);
+      }
+      $("#trails").append($col)
+      $col.append($card)
+      $card.append($content)
+      $content.append($name)
+
+  }
+
 
     })
