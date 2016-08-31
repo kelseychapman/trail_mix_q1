@@ -14,16 +14,16 @@
 $(document).ready(function() {
 
 
-  var city = $('#cityInput').val()
-  $('#submit').click(function () {
-    console.log(city)
-  })
+  // var city = $('#cityInput').val()
+  // $('#submit').click(function () {
+  //   console.log(city)
+  // })
 
  var xhr = new XMLHttpRequest();
  var activity = "mountain+biking"
 
 
-
+var allJSON = {};
 $('#submit').on('click', function () {
   getData()
 })
@@ -31,7 +31,7 @@ $('#submit').on('click', function () {
 var getData = function (){
 
 xhr.open('GET',
-`https://trailapi-trailapi.p.mashape.com/?lat=34.1&limit=250&lon=-105.2&q[country_cont]=United+States&q[activities_activity_type_name_eq]=${activity}&radius=3000`);
+'https://trailapi-trailapi.p.mashape.com/?lat=40&limit=50&lon=-105&q[activities_activity_type_name_eq]=mountain+biking&q[city_cont]=boulder&radius=25');
 xhr.setRequestHeader("X-Mashape-Key", "fqW2PWOMWgmshzocEyvv0m4Cyi84p1SAibJjsn6RetmFdoZyG8");
 xhr.responeType = 'json'
 xhr.onload = function() {
@@ -39,12 +39,23 @@ xhr.onload = function() {
         // console.log('User\'s name is ' + xhr.responseText);
         var myJSON = JSON.parse(xhr.responseText)
         console.log('myJSON', myJSON);
+        for(key in myJSON){
+          allJSON[key] = myJSON[key];
+        }
+        getActivity();
     } else {
         alert('Request failed.  Returned status of ' + xhr.status);
     }
 };
 xhr.send();
 
+}
+
+
+function getActivity(){
+  for (var i = 0; i < allJSON.places.length; i++) {
+    console.log(allJSON.places[i].activities[0].activity_type_name);
+  }
 }
 
 //
