@@ -14,24 +14,30 @@
 $(document).ready(function() {
 
 
-  // var city = $('#cityInput').val()
-  // $('#submit').click(function () {
-  //   console.log(city)
-  // })
 
  var xhr = new XMLHttpRequest();
- var activity = "mountain+biking"
+
 
 
 var allJSON = {};
-$('#submit').on('click', function () {
-  getData()
+$('#submit').on('click', function (event) {
+  event.preventDefault()
+  var activity = $('#activityInput').val();
+  console.log(activity);
+
+  var city = $('#cityInput').val();
+  console.log(city);
+
+  getData(activity, city)
+
 })
 
-var getData = function (){
+
+
+var getData = function (activity, city){
 
 xhr.open('GET',
-'https://trailapi-trailapi.p.mashape.com/?lat=40&limit=50&lon=-105&q[activities_activity_type_name_eq]=mountain+biking&q[city_cont]=boulder&radius=25');
+"https://trailapi-trailapi.p.mashape.com/?&limit=50&q[activities_activity_type_name_eq]="+activity+"&q[city_cont]="+city+"&radius=25");
 xhr.setRequestHeader("X-Mashape-Key", "fqW2PWOMWgmshzocEyvv0m4Cyi84p1SAibJjsn6RetmFdoZyG8");
 xhr.responeType = 'json'
 xhr.onload = function() {
@@ -57,6 +63,13 @@ function getActivity(){
     console.log(allJSON.places[i].activities[0].activity_type_name);
   }
 }
+
+
+
+
+
+
+
 
 //
 // (function() {
@@ -85,6 +98,11 @@ function getActivity(){
 //     }
 //   }
 // })();
+
+// var city = $('#cityInput').val()
+// $('#submit').click(function () {
+//   console.log(city)
+// })
 
 
     //
