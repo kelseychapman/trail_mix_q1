@@ -45,10 +45,10 @@ xhr.onload = function() {
         // console.log('User\'s name is ' + xhr.responseText);
         var myJSON = JSON.parse(xhr.responseText)
         console.log('myJSON', myJSON);
-        for(key in myJSON){
-          allJSON[key] = myJSON[key];
-        }
-        getActivity();
+        // for(key in myJSON){
+        //   allJSON[key] = myJSON[key];
+        // }
+        getActivity(myJSON);
     } else {
         alert('Request failed.  Returned status of ' + xhr.status);
     }
@@ -58,85 +58,79 @@ xhr.send();
 }
 
 
-function getActivity(){
-  for (var i = 0; i < allJSON.places.length; i++) {
-    console.log(allJSON.places[i].activities[0].activity_type_name);
+
+var renderTrails = function() {
+    $('#trails').empty(); //gets rid of things in "trails" div
+
+    for (var trail of trails) { //creates card in trails div
+      var $col = $('<div class="col s6">');
+      var $card = $('<div class="card hoverable">');
+      var $content = $('<div class="card-content center">');
+      var $title = $('<h6 class="card-title truncate">');
+
+      $title.attr({ //adds title in card
+        'data-position': 'top',
+        'data-tooltip': trail.title
+      });
+
+      $title.tooltip({ delay: 50, });
+
+      $title.text(trail.title);
+
+      var $thumbnail = $('<img class="thumbnail">'); //adds thumbnail in card
+
+      $thumbnail.attr({
+        src: trail.thumbnail,
+        alt: `${trail.thumbnail} thumbnail`
+      });
+
+      $content.append($title, $thumbnail);
+      $card.append($content);
+
+      var $action = $('<div class="card-action center">'); //adds description in card
+      var $description = $('<a class="waves-effect waves-light btn modal-trigger">'); //adds button in card
+
+      $description.attr('href', `#${trail.id}`);
+      $description.text('Trail Description');
+
+      $action.append($description);
+      $card.append($action);
+
+      var $modal = $(`<div id="${trail.id}" class="modal">`);
+      var $modalContent = $('<div class="modal-content">');
+      var $modalHeader = $('<h4>').text(trail.title);
+      var $movieActivity = $('<h6>').text(`Released in ${trail.activity}`);
+      var $modalText = $('<p>').text(trail.description);
+
+      $modalContent.append($modalHeader, $movieActivity, $modalText);
+      $modal.append($modalContent);
+
+      $col.append($card, $modal);
+
+      $('#trails').append($col);
+
+      $('.modal-trigger').leanModal();
+    }
+  };
+
+
+  function getActivity(myJSON){
+    for (var i = 0; i < myJSON.places.length; i++) {
+      console.log(allJSON.places[i].activities[0].activity_type_name);
+
+      var activityValue = {
+        city: myJSON.places.city
+        state: myJSON.places.state
+        activity_type_name: myJSON.places.activity_type_name
+        description: myJSON.places.description
+        name: myJSON.places.name
+        thumbnail: myJSON.places.thumbnail
+        url: myJSON.places.url
+        directions: myJSON.places.directions
+
+      }
+      console.log(activityValue.city)
+    }
   }
-}
 
-
-
-
-
-
-
-
-//
-// (function() {
-//   var httpRequest;
-//   document.getElementById("submit").onclick = function() { makeRequest('index.html'); };
-//
-//   function makeRequest(url) {
-//     httpRequest = new XMLHttpRequest();
-//
-//     if (!httpRequest) {
-//       alert('Giving up :( Cannot create an XMLHTTP instance');
-//       return false;
-//     }
-//     httpRequest.onreadystatechange = alertContents;
-//     httpRequest.open('GET', url);
-//     httpRequest.send();
-//   }
-//
-//   function alertContents() {
-//     if (httpRequest.readyState === XMLHttpRequest.DONE) {
-//       if (httpRequest.status === 200) {
-//         alert(httpRequest.responseText);
-//       } else {
-//         alert('There was a problem with the request.');
-//       }
-//     }
-//   }
-// })();
-
-// var city = $('#cityInput').val()
-// $('#submit').click(function () {
-//   console.log(city)
-// })
-
-
-    //
-    // $.ajax({
-    //         method: 'GET',
-    //         url: 'http://www.omdbapi.com/?s=jaws',
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             console.log('success!', data.Search);
-    //             let movies = data.Search;
-    //             for (var i = 0; i < movies.length; i++) {
-    //                 let movie = movies[i]
-    //                 console.log('movie', movie);
-    //                 let title = movie.Title;
-    //
-    //
-    //                 $.ajax({
-    //                     method: 'GET',
-    //                     url: `http://www.omdbapi.com/?t=${title}`,
-    //                     dataType: 'json',
-    //                     success: function(newData) {
-    //                         // console.log('newData!',newData);
-    //                         console.log('plot:', newData.Plot);
-    //                         // console.log('movie:', movie.Title);
-    //
-    //                     },
-    //                     error: function(err) {
-    //                         console.log('error', err);
-    //                     }
-    //                 })
-    //             }
-    //         },
-    //         error: function (err) {
-    //           console.log('jaws is coming for your family', err);
-    //         }
-    //     })
     })

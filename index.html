@@ -74,141 +74,145 @@
         <div class="full-bg-img flex-center">
             <ul class="animated fadeInUp">
                 <li>
-                  <h1 class="h1-responsive">Welcome to Trail Mix!</h1>
-                  <li>
+                    <h1 class="h1-responsive">Welcome to Trail Mix!</h1>
+                    <li>
 
-                      <p class="p-responsive">Having a hard time finding new and exciting trails?
-                          <br> Mix it up! Here you can filter results according to your activity and location</p>
-                  </li>
-<br>
-                  <!--search fields-->
-                <div class="row">
-                    <!--location input-->
-                    <div class="col-md-6">
+                        <p class="p-responsive">Having a hard time finding new and exciting trails?
+                            <br> Mix it up! Here you can filter results according to your activity and location</p>
+                    </li>
+                    <br>
+                    <!--search fields-->
+                    <div class="row">
+                        <!--location input-->
+                        <div class="col-md-6">
 
-                        <form class="form-inline">
-                            <input id="cityInput" class="form-control" type="text" placeholder="Enter City Name">
-                        </form>
+                            <form class="form-inline">
+                                <input id="cityInput" class="form-control" type="text" placeholder="Enter City Name">
+                            </form>
+                        </div>
+
+                        <!--activity input-->
+                        <div class="col-md-6">
+                            <form class="form-inline">
+                                <input id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br>
+                        <!--submit button-->
+                        <div class="col-md-12">
+                            <a href="javascript:void(0)" id="submit" <a target="_blank" href="https://www.zomato.com/denver" class="btn btn-default btn-lg btn-block btn-raised">Browse Through The Mix!</a>
+                            </fieldset>
+                        </div>
                     </div>
 
-                    <!--activity input-->
-                    <div class="col-md-6">
-                        <form class="form-inline">
-                            <input id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type">
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-<br>
-                    <!--submit button-->
-                    <div class="col-md-12">
-                        <a href="javascript:void(0)" id="submit" <a target="_blank" href="https://www.zomato.com/denver" class="btn btn-default btn-lg btn-block btn-raised">Browse Through The Mix!</a>
-                        </fieldset>
-                    </div>
-                </div>
-
-        </ul>
+            </ul>
             </ul>
         </div>
     </div>
     <!--/.Mask-->
 
 
-        <br>
+    <br>
+    <div class="container">
+        <div id="trails" class="row"></div>
+    </div>
 
 
-        <!--Content-->
-        <div class="container">
-            <div class="row">
-                <!--First columnn-->
-                <div class="col-md-4">
-                    <!--Card-->
-                    <div class="card">
 
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                            <a href="#">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
+    <!--Content-->
+    <div class="container">
+        <div class="row">
+            <!--First columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
 
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Trail Maps</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary teal">Read more</a>
-                        </div>
-                        <!--/.Card content-->
-
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
+                        </a>
                     </div>
-                    <!--/.Card-->
-                </div>
-                <!--First columnn-->
+                    <!--/.Card image-->
 
-                <!--Second columnn-->
-                <div class="col-md-4">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                            <a href="#">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Mtn Bike</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary teal">Read more</a>
-                        </div>
-                        <!--/.Card content-->
-
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Trail Maps</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary teal">Read more</a>
                     </div>
-                    <!--/.Card-->
+                    <!--/.Card content-->
+
                 </div>
-                <!--Second columnn-->
-
-                <!--Third columnn-->
-                <div class="col-md-4">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                            <a href="#">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary teal">Read more</a>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--Third columnn-->
+                <!--/.Card-->
             </div>
+            <!--First columnn-->
+
+            <!--Second columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Mtn Bike</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary teal">Read more</a>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Second columnn-->
+
+            <!--Third columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary teal">Read more</a>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Third columnn-->
         </div>
-        <!--/.Content-->
+    </div>
+    <!--/.Content-->
 
 
 
