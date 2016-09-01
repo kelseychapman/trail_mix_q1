@@ -61,7 +61,32 @@
   max-width: 100%;
 }
 
+.input#activityInput.form-control {
+  color: #fff;
+}
 
 .dropdownjs > ul {
   opacity: .9;
 }
+
+/*
+.row {
+  background-color: red;
+  border: 1px solid black;
+}
+
+
+.block {
+  background-color: purple;
+  border: 1px solid black;
+}
+
+.card-text {
+  color: green;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.card-title {
+  color: pink;
+}*/
