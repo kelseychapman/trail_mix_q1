@@ -56,9 +56,14 @@
         }
 
 
-.thumbnail {
-  height: 380px;
-  max-width: 100%;
+.overlay img {
+  height: 200px;
+  width: 100%;
+}
+
+.card img, .img-fluid, .section .view, .section img {
+  height: 200px;
+  width: 100%;
 }
 
 .input#activityInput.form-control {

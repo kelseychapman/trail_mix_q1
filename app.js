@@ -97,16 +97,19 @@ $(document).ready(function() {
 
     function renderActivities(activitiesArray) {
         for (var i = 0; i < activitiesArray.length; i++) {
-            var $col = $('<div class="col-md-4">');
+            var $col = $('<div class="col-md-3">');
             var $card = $('<div class="card">');
-            var $text = $('<div class="card-text center">Text goes here</div>');
-            var $location = $('<div class="card-text">Location goes here</div>')
+            // var $button = $('<a href="#" class="btn btn-primary">Button</a>')
+            var $text = $('<div class="card-text center">');
+            var $location = $('<div class="card-text">');
+            var $activityType = $('<div class="teal-text">')
             var $title = $('<h4 class="card-title">Title</h4>');
             var $thumbnail = $('<div class="view overlay hm-white-slight">')
             var $img = document.createElement('img');
             $($img).attr('src', activitiesArray[i].thumbnail);
 
-
+$
+            $activityType.text(activitiesArray[i].activity_type);
             $title.text(activitiesArray[i].title);
             $text.text(activitiesArray[i].description);
             $location.text(activitiesArray[i].city + ' , ' + activitiesArray[i].state);
@@ -114,11 +117,12 @@ $(document).ready(function() {
             // console.log($($thumbnail));
 
 
-
             $card.append($thumbnail)
             $card.append($title)
+            $card.append($activityType)
             $card.append($location)
             $card.append($text)
+            // $card.append($button)
             $col.append($card)
             $("#trails").append($col)
 
