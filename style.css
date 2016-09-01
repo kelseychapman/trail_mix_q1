@@ -56,15 +56,8 @@
         }
 
 
-.overlay img {
-  height: 200px;
-  width: 100%;
-}
 
-.card img, .img-fluid, .section .view, .section img {
-  height: 200px;
-  width: 100%;
-}
+
 
 .input#activityInput.form-control {
   color: #fff;
@@ -74,24 +67,7 @@
   opacity: .9;
 }
 
-/*
-.row {
-  background-color: red;
-  border: 1px solid black;
+.card-block {
+  height: 200px;
+  overflow: scroll;
 }
-
-
-.block {
-  background-color: purple;
-  border: 1px solid black;
-}
-
-.card-text {
-  color: green;
-  background-color: yellow;
-  border: 1px solid black;
-}
-
-.card-title {
-  color: pink;
-}*/

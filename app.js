@@ -24,8 +24,7 @@ $(document).ready(function() {
     var allJSON = {};
     $('#submit').on('click', function(event) {
         event.preventDefault()
-        var activity = $('#activityInput').val();
-        // console.log($('#activityInput'));
+        var activity = $('#activityInput option:selected').val();
 
         var location = $('#locationInput').val();
         // console.log(city);
@@ -45,7 +44,6 @@ $(document).ready(function() {
 
 
     var getData = function(activity, city, state) {
-
         xhr.open('GET',
             "https://trailapi-trailapi.p.mashape.com/?&limit=50&q[activities_activity_type_name_eq]=" + activity + "&q[city_cont]=" + city + "&q[state_cont]=" + state + "&radius=25");
         xhr.setRequestHeader("X-Mashape-Key", "fqW2PWOMWgmshzocEyvv0m4Cyi84p1SAibJjsn6RetmFdoZyG8");
@@ -72,7 +70,7 @@ $(document).ready(function() {
 
     function getActivity(myJSON) {
         var activitiesArray = []
-
+        console.log(myJSON);
         for (var i = 0; i < myJSON.places.length; i++) {
             // console.log(myJSON.places[i]);
 
@@ -97,18 +95,18 @@ $(document).ready(function() {
 
     function renderActivities(activitiesArray) {
         for (var i = 0; i < activitiesArray.length; i++) {
-            var $col = $('<div class="col-md-3">');
+            var $col = $('<div class="col-md-4">');
+            var $cardBlock = $('<div class="card-block">');
             var $card = $('<div class="card">');
-            // var $button = $('<a href="#" class="btn btn-primary">Button</a>')
-            var $text = $('<div class="card-text center">');
+            var $text = $('<div class="card-text center-align">');
             var $location = $('<div class="card-text">');
             var $activityType = $('<div class="teal-text">')
-            var $title = $('<h4 class="card-title">Title</h4>');
+            var $title = $('<h4 class="card-title">');
             var $thumbnail = $('<div class="view overlay hm-white-slight">')
             var $img = document.createElement('img');
             $($img).attr('src', activitiesArray[i].thumbnail);
 
-$
+
             $activityType.text(activitiesArray[i].activity_type);
             $title.text(activitiesArray[i].title);
             $text.text(activitiesArray[i].description);
@@ -116,16 +114,24 @@ $
             $thumbnail.html($img);
             // console.log($($thumbnail));
 
-
-            $card.append($thumbnail)
-            $card.append($title)
-            $card.append($activityType)
-            $card.append($location)
-            $card.append($text)
-            // $card.append($button)
+              $card.append($cardBlock)
+            $cardBlock.append($thumbnail)
+            $cardBlock.append($title)
+            $cardBlock.append($activityType)
+            $cardBlock.append($location)
+            $cardBlock.append($text)
+            // $cardBlock.append($button)
             $col.append($card)
             $("#trails").append($col)
 
+
+            var $action = $('<div class="card-action center">');
+            var $button = $('<a href="#" target="blank" class="btn btn-default">')
+
+            $button.text('View More Details');
+            $button.attr('href',activitiesArray[i].url);
+            $action.append($button);
+            $card.append($action);
         }
 
     }
