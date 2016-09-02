@@ -71,3 +71,8 @@
   height: 200px;
   overflow: scroll;
 }
+
+.view img, .view video {
+     display:inline;
+     position: relative; 
+}
