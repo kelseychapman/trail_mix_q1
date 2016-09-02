@@ -62,9 +62,9 @@ footer.page-footer {
     overflow: scroll;
 }
 
-.card {
+/*.card {
   height: 300px;
-}
+}*/
 
 .view img, .view video {
     display: inline;
