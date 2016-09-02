@@ -58,7 +58,7 @@ footer.page-footer {
 
 /*populate card block styles*/
 .card-block {
-    height: 300px;
+    height: 200px;
     overflow: scroll;
 }
 
