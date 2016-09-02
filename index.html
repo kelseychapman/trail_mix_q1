@@ -10,17 +10,16 @@
     <title>Trail Mix</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link type="stylesheet" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link type="stylesheet" href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link type="stylesheet" href="css/mdb.min.css" rel="stylesheet">
 
     <!-- Kelsey CSS -->
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="stylesheet">
 
 </head>
 
@@ -28,35 +27,21 @@
 
 
     <!--Navbar-->
-    <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar">
-
-        <!-- Collapse button-->
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
-            <i class="fa fa-bars"></i>
-        </button>
-
+    <div class="navbar navbar-dark navbar-fixed-top scrolling-navbar">
         <div class="container">
-
             <!--Collapse content-->
             <div class="collapse navbar-toggleable-xs" id="collapseEx">
                 <!--Navbar Brand-->
-                <a class="navbar-brand" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">MDB</a>
+                <a class="navbar-brand" href="http://trailmix_q1_project.surge.sh/" target="_blank">MDB</a>
                 <!--Links-->
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <!--Search form-->
-                <!-- <form class="form-inline">
-                    <input class="form-control" type="text" placeholder="Search">
-                </form> -->
             </div>
-            <!--/.Collapse content-->
-
         </div>
-
-    </nav>
+    </div>
     <!--/.Navbar-->
 
     <!--Mask-->
@@ -64,34 +49,22 @@
         <div class="full-bg-img flex-center">
             <ul class="animated fadeInUp">
                 <li>
-                  <img src="img/logo.png" alt="Mountain View" align="middle" style="width:304px;">
-                    <li>
+                    <img src="img/logo.png" alt="Mountain View" align="middle" style="width:304px;">
+                    <div>
 
                         <p class="p-responsive">Having a hard time finding new and exciting trails?
                             <br> Mix it up! Here you can filter results according to your activity and location</p>
-                    </li>
+                    </div>
                     <br>
                     <!--search fields-->
                     <div class="row">
                         <!--activity input-->
                         <div class="col-md-6">
-                            <!-- <div class="btn-group" id="activityInput" class="form-control" type="text" placeholder="Choose Activity Type"> -->
-                            <!-- <div class="btn-group" id="activityInput">
-                                <a href="javascript:void(0)" class="btn">Choose Activity</a>
-                                <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)">Mountain Biking</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:void(0)">Hiking</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:void(0)">Camping</a></li>
-                                </ul>
-                            </div> -->
 
-                            <!--/Dropdown default-->
 
-                            <!--Blue select-->
+                            <!--/Dropdown-->
                             <label>Select Activity</label>
+                            <br>
                             <select class="mdb-select dropdown.default" id="activityInput">
                                 <option value="mountain biking">Mountain Biking</option>
                                 <option value="hiking">Hiking</option>
@@ -109,7 +82,7 @@
                         <div class="col-md-6">
 
                             <form class="form-inline">
-                                <input id="locationInput" class="form-control" type="text" placeholder="Enter 'City,State'">
+                                <input id="locationInput" class="form-control" action="" type="text" placeholder="Enter 'City, State'">
                             </form>
                         </div>
                     </div>
@@ -117,8 +90,7 @@
                         <br>
                         <!--submit button-->
                         <div class="col-md-12">
-                            <a href="javascript:void(0)" id="submit" <a target="_blank" href="https://www.zomato.com/denver" class="btn btn-default btn-lg btn-block btn-raised">Browse Through The Mix!</a>
-                            </fieldset>
+                            <a href="javascript:void(0)" id="submit"><a target="_blank" class="btn btn-default btn-lg btn-block btn-raised">Browse Through The Mix!</a>
                         </div>
                     </div>
 
@@ -127,8 +99,11 @@
         </div>
     </div>
     <!--/.Mask-->
-<br>
+    <br>
+
     <!--Search Results section-->
+    <!--Section heading-->
+
     <div class="container">
         <div class="black-text text-xs-center wow fadeInUp">
             <h2>Trails Near You</h2>
@@ -142,106 +117,13 @@
         <div id="trails" class="row"></div>
     </div>
 
-
-
-    <!--Content-->
-    <!-- <div class="container"> -->
-
-
-    <!-- <div class="col-md-4"> -->
-    <!--Card-->
-    <!-- <div class="card"> -->
-
-    <!--Card image-->
-    <!-- <div class="view overlay hm-white-slight">
-                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                        <a href="#">
-                            <div class="mask"></div>
-                        </a>
-                    </div> -->
-    <!--/.Card image-->
-
-    <!--Card content-->
-    <!-- <div class="card-block"> -->
-    <!--Title-->
-    <!-- <h4 class="card-title">Trail Maps</h4> -->
-    <!--Text-->
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary teal">Read more</a>
-                    </div> -->
-    <!--/.Card content-->
-
-    <!-- </div> -->
-    <!--/.Card-->
-    <!-- </div> -->
-    <!--First columnn-->
-
-    <!--Second columnn-->
-    <!-- <div class="col-md-4"> -->
-    <!--Card-->
-    <!-- <div class="card"> -->
-
-    <!--Card image-->
-    <!-- <div class="view overlay hm-white-slight">
-                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                        <a href="#">
-                            <div class="mask"></div>
-                        </a>
-                    </div> -->
-    <!--/.Card image-->
-
-    <!--Card content-->
-    <!-- <div class="card-block"> -->
-    <!--Title-->
-    <!-- <h4 class="card-title">Mtn Bike</h4> -->
-    <!--Text-->
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary teal">Read more</a>
-                    </div> -->
-    <!--/.Card content-->
-
-    <!-- </div> -->
-    <!--/.Card-->
-    <!-- </div> -->
-    <!--Second columnn-->
-
-    <!--Third columnn-->
-    <!-- <div class="col-md-4"> -->
-    <!--Card-->
-    <!-- <div class="card"> -->
-
-    <!--Card image-->
-    <!-- <div class="view overlay hm-white-slight">
-                        <img src="http://mdbootstrap.com/images/slides/slide%20(4).jpg" class="img-fluid" alt="">
-                        <a href="#">
-                            <div class="mask"></div>
-                        </a>
-                    </div> -->
-    <!--/.Card image-->
-
-    <!--Card content-->
-    <!-- <div class="card-block"> -->
-    <!--Title-->
-    <!-- <h4 class="card-title">Card title</h4> -->
-    <!--Text-->
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary teal">Read more</a>
-                    </div> -->
-    <!--/.Card content-->
-
-    <!-- </div> -->
-    <!--/.Card-->
-    <!-- </div> -->
-    <!--Third columnn-->
-    </div>
-
-    <!--/.Content-->
+    <!--end of Search Results section-->
 
 
 
 
     <!--Footer-->
-    <footer class="page-footer center-on-small-only">
+    <div class="page-footer center-on-small-only">
 
 
         <!--Call to action-->
@@ -249,23 +131,17 @@
             <h4>Trail Mix</h4>
             <ul>
                 <li>
-                    <h5>Providing trails around you!</h5></li>
-                <!-- <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-danger">Sign up!</a></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default">Learn more</a></li> -->
+                    <h5>Providing trails around you!</h5>
+                </li>
             </ul>
         </div>
-        <!--/.Call to action-->
-
-        <!--Copyright-->
         <div class="footer-copyright">
             <div class="container-fluid">
-                © 2016 TrailMix <a href="http://www.MDBootstrap.com"> trailmix.com </a>
-
+                © 2016 TrailMix <a href="alltrails.com"> trailmix.com </a>
             </div>
         </div>
-        <!--/.Copyright-->
 
-    </footer>
+    </div>
     <!--/.Footer-->
 
 

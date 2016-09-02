@@ -1,78 +1,75 @@
 /* YOUR CUSTOM STYLES */
+
 .hm-black-strong .full-bg-img, .hm-black-strong .mask {
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
 }
-
 .form-control {
-  color: #fff;
+    color: #fff;
 }
 
+/* TEMPLATE STYLES */
 
-        /* TEMPLATE STYLES */
-
-        html,
-        body,
-        .view {
-            height: 100%;
-        }
-        /* Navigation*/
-
-        .navbar {
-            background-color: transparent;
-        }
-
-        .scrolling-navbar {
-            -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
-            -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
-            transition: background .5s ease-in-out, padding .5s ease-in-out;
-        }
-
-        .top-nav-collapse {
-            background-color: #1C2331;
-        }
-
-        footer.page-footer {
-            background-color: #1C2331;
-            margin-top: -1px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .navbar {
-                background-color: #1C2331;
-            }
-        }
-        /*Call to action*/
-
-        .flex-center {
-            color: #fff;
-        }
-
-        .view {
-            background: url("http://mdbootstrap.com/images/slides/slide%20(7).jpg")no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-
-
-
-
-.input#activityInput.form-control {
-  color: #fff;
+html, body, .view {
+    height: 100%;
 }
 
-.dropdownjs > ul {
-  opacity: .9;
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+}
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+.top-nav-collapse {
+    background-color: #1C2331;
+}
+footer.page-footer {
+    background-color: #1C2331;
+    margin-top: -1px;
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+    background-color: #1C2331;
+    }
 }
 
+/*Call to action*/
+
+.flex-center {
+    color: #fff;
+}
+.view {
+    background: url("http://mdbootstrap.com/images/slides/slide%20(7).jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.form-control:focus {
+    color: #fff; important!
+}
+
+.dropdownjs> ul {
+    opacity: .9;
+}
+
+/*populate card block styles*/
 .card-block {
-  height: 200px;
-  overflow: scroll;
+    height: 300px;
+    overflow: scroll;
+}
+
+.card {
+  height: 300px;
 }
 
 .view img, .view video {
-     display:inline;
-     position: relative; 
+    display: inline;
+    position: relative;
+}
+input#locationInput.form-control {
+  color: #fff;
 }
